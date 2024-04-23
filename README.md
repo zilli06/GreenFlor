@@ -9,4 +9,4 @@ Classe fiori con attributi
     private int costo;
 
 
-seconda Classe fioraio
+seconda Classe NegozioFiori
