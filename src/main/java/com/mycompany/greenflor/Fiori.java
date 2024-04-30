@@ -19,16 +19,30 @@ public class Fiori
     private int quantita;
     private LocalDate dataAcquisto;
     private int costo;
+    private static long nextCodice=1;
+    private long codice;
     
 
     public Fiori(String tipo, String colore, int quantita,int anno, int mese, int giorno, int costo) 
     {
+        this.codice=nextCodice; //assegno il codice al nuovo pc 
+        nextCodice++;
         this.tipo = tipo;
         this.colore = colore;
         this.quantita = quantita;
         dataAcquisto = LocalDate.of(anno,mese, giorno);
         this.costo = costo;
     }
+
+    public Fiori(Fiori fi) 
+    {
+        this.colore=fi.getColore();
+        this.quantita=fi.getQuantita();
+        this.costo=fi.getCosto();
+        this.codice=fi.getCodice();
+    }
+    
+    
 
     public String getTipo() 
     {
@@ -72,10 +86,18 @@ public class Fiori
         this.costo = costo;
     }
 
+    public long getCodice() {
+        return codice;
+    }
+
     @Override
     public String toString() {
-        return "Fiori{" + "tipo=" + tipo + ", colore=" + colore + ", quantita=" + quantita + ", dataAcquisto=" + dataAcquisto + ", costo=" + costo + '}';
+        return "Fiori{" + "tipo=" + tipo + ", colore=" + colore + ", quantita=" + quantita + ", dataAcquisto=" + dataAcquisto + ", costo=" + costo + ", codice=" + codice + '}';
     }
+    
+    
+
+    
     
     
     
