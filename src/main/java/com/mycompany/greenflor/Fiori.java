@@ -89,6 +89,11 @@ public class Fiori
     public long getCodice() {
         return codice;
     }
+    
+    public void setDataAcquisto(LocalDate dataAcquisto)
+    {
+        this.dataAcquisto=dataAcquisto;
+    }
 
     @Override
     public String toString() {

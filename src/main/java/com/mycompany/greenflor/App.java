@@ -5,6 +5,7 @@
 package com.mycompany.greenflor;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import utilita.ConsoleInput;
 import utilita.Menu;
 
@@ -21,21 +22,22 @@ public class App {
         vociMenu=new String[numeroVoci];
         Menu menu;
         int voceScelta;
-        NegozioFiori s1=new NegozioFiori(); //creo lo scaffale vuoto
+        NegozioFiori n1=new NegozioFiori(); //creo lo scaffale vuoto
         int esito;
         //Scanner tastiera=new Scanner(System.in);
         ConsoleInput tastiera = new ConsoleInput();
-        String titolo,autore;
-        int numeroPagine;
+        String tipo,colore;
+        int quantita,anno,mese,giorno,codice;
+        LocalDate dataAcquisto;
         Fiori fio;
         int ripiano, posizione;
         String[] elencoTitoliAutore;
-        Libro[] libriPresenti;
+        Fiori[] fioriPresenti;
         String nomeFile = "volumi.CSV";
         String nomeFileBinario = "scaffale.bin";
         
         vociMenu[0]="\t--> Esci";
-        vociMenu[1]="\t--> Visualizza tutti i volumi presenti";
+        vociMenu[1]="\t--> Visualizza tutti i fiori";
         vociMenu[2]="\t--> Aggiungi volume";
         vociMenu[3]="\t--> Visualizza volume (ripiano, posizione) ";
         vociMenu[4]="\t--> Elimina volume (ripiano, posizione)";
@@ -60,24 +62,39 @@ public class App {
                     System.out.println("Arrivederci!");    
                     break;
                 case 1: //visualizza tutti
-                    System.out.println(s1.toString());
+                    System.out.println(n1.toString());
                     break;
-                case 2: //aggiungi volume
+                case 2: //aggiungi fiore
                     
                     try
                     {
-                        System.out.println("Titolo --> ");
-                        titolo=tastiera.readString();
+                        System.out.println("tipo --> ");
+                        tipo=tastiera.readString();
                         
-                        System.out.println("Autore --> ");
-                        autore=tastiera.readString();
+                        System.out.println("colore --> ");
+                        colore=tastiera.readString();
                     
                     do
                     {
                         try
                         {
-                            System.out.println("Numero pagine --> ");
-                            numeroPagine=tastiera.readInt();
+                            System.out.println("quantita --> ");
+                            quantita=tastiera.readInt();
+                            
+                            break;
+                        }
+                        catch(NumberFormatException e)
+                        {
+                            System.out.println("errore! devi inserire un numero!");
+                        }
+                    }while(true);
+                    
+                    do
+                    {
+                        try
+                        {
+                            System.out.println("data aa/mm/gg ");
+                            dataAcquisto=tastiera.readInt();
                             
                             break;
                         }
