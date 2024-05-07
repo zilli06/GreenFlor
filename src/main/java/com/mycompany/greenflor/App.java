@@ -17,7 +17,7 @@ public class App {
 
     public static void main(String[] args) 
     {
-        String[] vociMenu;
+       /* String[] vociMenu;
         int numeroVoci=11;
         vociMenu=new String[numeroVoci];
         Menu menu;
@@ -387,6 +387,6 @@ public class App {
                     
             }  
         }while(voceScelta!=0);
-        
+      */  
     }
 }
